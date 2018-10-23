@@ -5,4 +5,5 @@ dependencies:
   - pytest-pep8
   - pytest-cov
   - numpy
+  - sphinx
 
