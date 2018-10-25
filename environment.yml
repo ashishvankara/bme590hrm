@@ -6,4 +6,6 @@ dependencies:
   - pytest-cov
   - numpy
   - sphinx
+  - pandas
+  - logging
 
