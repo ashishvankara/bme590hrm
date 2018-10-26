@@ -49,14 +49,27 @@ def savgolFilter(volt):
     from scipy.signal import savgol_filter
     return savgol_filter(volt, 19, 7)
 
+def splineInterp(t, v):
+    from scipy.interpolate import CubicSpline
+    import matplotlib.pyplot as plt
+    cs = CubicSpline(t, v)
+    plt.plot(t, v, label="Original")
+    plt.plot(t, cs(t,1), label="Spline")
+   # plt.plot(t, cs(t, 1), label="S'")
+   # plt.plot(t, cs(t, 2), label="S''")
+   # plt.plot(t, cs(t, 3), label="S'''")
+    plt.legend(loc='lower left', ncol=2)
+    plt.show()
+
 
 if __name__ == "__main__":
     from readCSV import readCsv
-    [t,v] = readCsv(r'test_data\test_data25.csv')
+    [t,v] = readCsv(r'test_data\test_data10.csv')
     visualizeSignal(t,v)
-    sv = subtractDC(v)
-    visualizeSignal(t, sv)
-    svf = savgolFilter(sv)
-    visualizeSignal(t, svf)
+#    sv = subtractDC(v)
+#    visualizeSignal(t, sv)
+#    svf = savgolFilter(sv)
+#    visualizeSignal(t, svf)
+    splineInterp(t,v)
 
 
