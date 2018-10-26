@@ -26,7 +26,7 @@ def readCsv(name):
 
         raise TypeError("Length of time column is unequal"
                         "to the length of the voltage column")
-        return [t, v]
+    return [t, v]
 
 
 if __name__ == "__main__":
