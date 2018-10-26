@@ -9,7 +9,17 @@ Welcome to Heart Rate Monitor's documentation!
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
+.. automodule:: readCSV
 
+.. automodule:: test_readCSV
+
+.. automodule:: timeDuration
+
+.. automodule:: test_timeDuration
+
+.. automodule:: extVolt
+
+.. automodule:: test_extVolt
 
 
 
