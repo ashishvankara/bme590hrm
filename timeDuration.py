@@ -14,6 +14,5 @@ def timeDuration(times):
     duration = times[-1]
     return duration
 
-
 if __name__ == "__main__":
     timeDuration([1, 2, 3, 4, 5])
