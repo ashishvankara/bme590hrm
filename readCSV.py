@@ -7,9 +7,9 @@ def readCsv(name):
     This function extracts ECG data from a csv and stores
     it in the appropriate lists.
 
-
     Args:
         :name (string): .csv filename
+
     Returns:
         :t (list): list containing time data from csv file
         :v (list): list containing voltage data from csv file
