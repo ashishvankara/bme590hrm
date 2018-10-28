@@ -2,74 +2,76 @@ import matplotlib
 
 
 def visualizeSignal(t,v):
-    """ Determines the min and max elements of a list
+    """ Plots voltage vs. time
 
-    This function determines the min and max voltages of an ECG data
-    set
+    This function plots the ECG data as voltage vs. time
 
     Args:
         :volts (list): List of voltages containing floats
 
     Returns:
-        :min (float): minimum ECG voltage
-        :max (float): maximum ECG voltage
     """
     import matplotlib.pyplot as plt
     plt.plot(t, v)
     plt.show()
 
 def subtractDC(volt):
-    """ Determines the min and max elements of a list
+    """ Subtracts the average of an array from all the values in the array
 
-    This function determines the min and max voltages of an ECG data
-    set
+    This function subtracts the DCoffset within ECG data.
 
     Args:
         :volts (list): List of voltages containing floats
 
     Returns:
-        :min (float): minimum ECG voltage
-        :max (float): maximum ECG voltage
+        :subvolt (list): List with DC average subtracted
+
     """
     import numpy as np
-    import matplotlib.pyplot as plt
     DCVolt = np.mean(volt)
     subvolt = np.array(volt) - DCVolt
     return subvolt
 
 def savgolFilter(volt):
-    """Smooths the signal by applying a Savitsky Golay filter
+    """ Smooths the input signal by applying a Savitsky Golay filter
 
      Args:
-        :param self: hrmData Object
-        :param data: voltage with DC subtracted
+        :volt (list): List of ECG voltage floats
      Returns:
-        list of voltage values, filter applied
+        :filtereddata (list): List of filtered voltage floats
     """
     from scipy.signal import savgol_filter
-    return savgol_filter(volt, 19, 7)
+    filtereddata = savgol_filter(volt, 19, 7)
+    return filtereddata
 
-def splineInterp(t, v):
-    from scipy.interpolate import CubicSpline
-    import matplotlib.pyplot as plt
-    cs = CubicSpline(t, v)
-    plt.plot(t, v, label="Original")
-    plt.plot(t, cs(t,1), label="Spline")
-   # plt.plot(t, cs(t, 1), label="S'")
-   # plt.plot(t, cs(t, 2), label="S''")
-   # plt.plot(t, cs(t, 3), label="S'''")
-    plt.legend(loc='lower left', ncol=2)
-    plt.show()
+def movingAverage(t,volts, window):
+    """ Reduces noise by applying a moving average
 
+     Args:
+        :t (list): List of ECG time floats
+        :volts (list): List of ECG voltage floats
+        :window (int): Size of moving average window
+     Returns:
+        :lengthenedavg (list): List of moving average voltage floats
+    """
+    import numpy as np
+    from numpy import convolve
+    bleh = np.repeat(1.0, window) / window
+    movingavg = np.convolve(volts, bleh, 'valid')
+    lengthenedavg = np.append(volts[:len(t) - len(movingavg)], movingavg)
+    return lengthenedavg
 
 if __name__ == "__main__":
     from readCSV import readCsv
+    import numpy as np
     [t,v] = readCsv(r'test_data\test_data10.csv')
-    visualizeSignal(t,v)
-#    sv = subtractDC(v)
-#    visualizeSignal(t, sv)
-#    svf = savgolFilter(sv)
-#    visualizeSignal(t, svf)
-    splineInterp(t,v)
+#    visualizeSignal(t,v)
+    sv = subtractDC(v)
+    svf = savgolFilter(sv)
+    avgvolt =movingAverage(t, svf, 40)
+#    visualizeSignal(t, avgvolt)
+    splineInterp(t, avgvolt, 1)
+
+
 
 
