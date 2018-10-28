@@ -17,8 +17,6 @@ def main():
     plt.plot(t, avgvolt)
     plt.plot(t[peaks], avgvolt[peaks], 'o')
     plt.show()
-    #visualizeSignal(t,v)
-
 
 if __name__ == "__main__":
     main()
