@@ -2,7 +2,8 @@ import pytest
 
 
 def test_subtractDC():
-    """" Tests subtraction of the average of a list from all the values in the list.
+    """" Tests subtraction of the average of a list from all the values
+     in the list.
 
     """
     from processECG import subtractDC
