@@ -1,5 +1,5 @@
 def timeDuration(times):
-    """ Determines the last element of a list
+    """ Subtracts the first element of a list from the last
 
     This function determines the duration of time that the ECG data was taken
 
@@ -11,7 +11,7 @@ def timeDuration(times):
         :duration (float): the length of time the ECG data was taken
     """
 
-    duration = times[-1]
+    duration = times[-1] - times[0]
     return duration
 
 if __name__ == "__main__":

@@ -1,27 +1,12 @@
-import matplotlib
-
-
-def visualizeSignal(t,v):
-    """ Plots voltage vs. time
-
-    This function plots the ECG data as voltage vs. time
-
-    Args:
-        :volts (list): List of voltages containing floats
-
-    Returns:
-    """
-    import matplotlib.pyplot as plt
-    plt.plot(t, v)
-    plt.show()
+import logging
 
 def subtractDC(volt):
     """ Subtracts the average of an array from all the values in the array
 
-    This function subtracts the DCoffset within ECG data.
+    This function subtracts off the DC offset within the ECG data.
 
     Args:
-        :volts (list): List of voltages containing floats
+        :volt (list): List of voltages containing floats
 
     Returns:
         :subvolt (list): List with DC average subtracted
@@ -29,23 +14,12 @@ def subtractDC(volt):
     """
     import numpy as np
     DCVolt = np.mean(volt)
-    subvolt = np.array(volt) - DCVolt
+    subvolt = volt - DCVolt
+    logging.debug("DC offset was subtracted form voltage data")
     return subvolt
 
-def savgolFilter(volt):
-    """ Smooths the input signal by applying a Savitsky Golay filter
-
-     Args:
-        :volt (list): List of ECG voltage floats
-     Returns:
-        :filtereddata (list): List of filtered voltage floats
-    """
-    from scipy.signal import savgol_filter
-    filtereddata = savgol_filter(volt, 19, 7)
-    return filtereddata
-
 def movingAverage(t,volts, window):
-    """ Reduces noise by applying a moving average
+    """ Reduces noise by applying a moving average window
 
      Args:
         :t (list): List of ECG time floats
@@ -59,18 +33,17 @@ def movingAverage(t,volts, window):
     bleh = np.repeat(1.0, window) / window
     movingavg = np.convolve(volts, bleh, 'valid')
     lengthenedavg = np.append(volts[:len(t) - len(movingavg)], movingavg)
+    logging.debug("Moving average was applied with a window of %f values", window)
     return lengthenedavg
 
 if __name__ == "__main__":
     from readCSV import readCsv
     import numpy as np
     [t,v] = readCsv(r'test_data\test_data10.csv')
-#    visualizeSignal(t,v)
     sv = subtractDC(v)
     svf = savgolFilter(sv)
     avgvolt =movingAverage(t, svf, 40)
-#    visualizeSignal(t, avgvolt)
-    splineInterp(t, avgvolt, 1)
+
 
 
 

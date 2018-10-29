@@ -3,11 +3,6 @@ import pytest
 
 def test_extVolt():
     """" Tests extraction of maxima and minima from a list
-
-    Args:
-
-    Returns:
-
     """
     from extVolt import extremeVolt
     testvoltage = [95.-.0034, -67, 420, 689, .089, .04689, -.002, 0, 432, 10,
