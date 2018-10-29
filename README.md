@@ -26,8 +26,8 @@ The software package is separated into the following files:
 - peakDetection.py: Contains a function that identifies R wave peaks using the continuous wavelet transform.
 - processECG.py: Contains the functions to subtract the data's DC offset and smooth the data by applying a moving average.
 - readCSV.py: Contains the functions to read ECG data from a csv and allow for user-input modulation of time interval.
-- timeDuration.py: This function determines the duration of time of an ECG strip.
-- writetoJson.py: This function writes the calculated hr parameters to a JSON file with same name as the data.
+- timeDuration.py: Contains a function that determines the duration of time of an ECG strip.
+- writetoJson.py: Contains a function that writes the calculated hr parameters to a JSON file with same name as the data.
 - Unit Tests: Several are included for adequate test coverage.
 
 
