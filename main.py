@@ -11,6 +11,7 @@ def main():
     from extVolt import extremeVolt
     from hrcalc import hrCalc
     import matplotlib.pyplot as plt
+    from writetoJson import writetoJson
     import json
     csvfile = r'test_data1.csv'
     [traw, vraw] = readCsv(csvfile)
@@ -31,7 +32,7 @@ def main():
     duration = timeDuration(t)
     beatnum = len(peakindices)
     meanhr = hrCalc(peakindices, t)
-
+    writetoJson(csvfile, meanhr, voltextremes, duration, beatnum, heartbeattimes)
     plt.plot(t, avgvolt)
     plt.plot(t[peakindices], avgvolt[peakindices], 'o')
     plt.show()
