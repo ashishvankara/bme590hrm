@@ -39,7 +39,7 @@ def movingAverage(t,volts, window):
 if __name__ == "__main__":
     from readCSV import readCsv
     import numpy as np
-    [t,v] = readCsv(r'test_data\test_data10.csv')
+    [t,v] = readCsv(r'test_data10.csv')
     sv = subtractDC(v)
     svf = savgolFilter(sv)
     avgvolt =movingAverage(t, svf, 40)

@@ -6,7 +6,7 @@ def test_peakDetect():
     from readCSV import readCsv
     from processECG import movingAverage
     from processECG import subtractDC
-    [t, v] = readCsv(r'test_data\test_data1.csv')
+    [t, v] = readCsv(r'test_data1.csv')
     svf = subtractDC(v)
     invfssum = 0.0
     for i in range(len(t) - 1):

@@ -23,7 +23,7 @@ if __name__ == "__main__":
     from processECG import savgolFilter
     from processECG import movingAverage
     import matplotlib.pyplot as plt
-    [t, v] = readCsv(r'test_data\test_data4.csv')
+    [t, v] = readCsv(r'test_data4.csv')
     sv = subtractDC(v)
     svf = savgolFilter(sv)
     avgvolt = movingAverage(t, svf, 30)

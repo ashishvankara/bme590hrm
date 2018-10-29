@@ -12,7 +12,7 @@ def main():
     from hrcalc import hrCalc
     import matplotlib.pyplot as plt
     import json
-    csvfile = r'test_data\test_data1.csv'
+    csvfile = r'test_data1.csv'
     [traw, vraw] = readCsv(csvfile)
     bottomtimebnd = 0
     toptimebnd = 100
