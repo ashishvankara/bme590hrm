@@ -1,16 +1,17 @@
 
 def extremeVolt(volts):
-    """ Determines the min and max of a list
+    """ Determines the min and max of a list.
 
     This function determines the min and max voltages of an ECG data
-    set
+    set.
 
     Args:
-        :volts (list): List of voltages containing floats
+        volts (list): List of voltages containing floats
 
     Returns:
-        :min (float): minimum ECG voltage
-        :max (float): maximum ECG voltage
+        min (float): minimum ECG voltage
+        max (float): maximum ECG voltage
+
     """
     volts.sort()
     print(volts)

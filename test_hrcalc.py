@@ -2,7 +2,8 @@ import pytest
 
 
 def test_hrcalc():
-    """" Tests average hr calculation
+    """" Tests average hr calculation.
+
     """
     import numpy as np
     from hrcalc import hrCalc

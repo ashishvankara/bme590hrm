@@ -3,18 +3,19 @@ import numpy as np
 
 
 def peakDetect(t, v):
-    """ Detects R wave peaks from processed ECG data
+    """ Detects R wave peaks from processed ECG data.
 
     This function identifies R wave peaks using the continuous
     wavelet transform
 
     Args:
-        :t (list): List of ECG time floats
-        :v (list): List of processed ECG voltage floats.
+        t (list): List of ECG time floats
+        v (list): List of processed ECG voltage floats.
 
     Returns:
-        :peakind (list): List of integer indices corresponding to peaks
+        peakind (list): List of integer indices corresponding to peaks
          in input lists.
+
     """
     peakind = signal.find_peaks_cwt(v, np.arange(20, 40, .1))
     return peakind

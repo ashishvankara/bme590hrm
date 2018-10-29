@@ -1,6 +1,7 @@
 
 def test_peakDetect():
-    """" Tests R wave peak detection from ECG data
+    """" Tests R wave peak detection from ECG data.
+
     """
     from peakDetection import peakDetect
     from readCSV import readCsv

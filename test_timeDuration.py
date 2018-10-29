@@ -2,7 +2,8 @@ import pytest
 
 
 def test_timeDuration():
-    """" Tests extraction of time duration of ECG data
+    """" Tests extraction of time duration of ECG data.
+
     """
     from readCSV import readCsv
     from timeDuration import timeDuration

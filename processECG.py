@@ -2,15 +2,16 @@ import logging
 
 
 def subtractDC(volt):
-    """ Subtracts the average of an array from all the values in the array
+    """ Subtracts the average of an array from all the values in the array.
 
     This function subtracts off the DC offset within the ECG data.
 
     Args:
-        :volt (list): List of voltages containing floats
+        volt (list): List of voltages containing floats
 
     Returns:
-        :subvolt (list): List with DC average subtracted
+
+        subvolt (list): List with DC average subtracted
 
     """
     import numpy as np
@@ -21,14 +22,15 @@ def subtractDC(volt):
 
 
 def movingAverage(t, volts, window):
-    """ Reduces noise by applying a moving average window
+    """ Reduces noise by applying a moving average window.
 
      Args:
-        :t (list): List of ECG time floats
-        :volts (list): List of ECG voltage floats
-        :window (int): Size of moving average window
+        t (list): List of ECG time floats
+        volts (list): List of ECG voltage floats
+        window (int): Size of moving average window
+
      Returns:
-        :lengthenedavg (list): List of moving average voltage floats
+        lengthenedavg (list): List of moving average voltage floats
     """
     import numpy as np
     from numpy import convolve

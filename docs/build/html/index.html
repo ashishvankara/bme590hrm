@@ -1,0 +1,306 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Welcome to Heart Rate Monitor’s documentation! &#8212; Heart Rate Monitor [0.0.1] documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="welcome-to-heart-rate-monitor-s-documentation">
+<h1>Welcome to Heart Rate Monitor’s documentation!<a class="headerlink" href="#welcome-to-heart-rate-monitor-s-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<dl class="function">
+<dt id="processECG.subtractDC">
+<code class="descclassname">processECG.</code><code class="descname">subtractDC</code><span class="sig-paren">(</span><em>volt</em><span class="sig-paren">)</span><a class="headerlink" href="#processECG.subtractDC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Subtracts the average of an array from all the values in the array.</p>
+<p>This function subtracts off the DC offset within the ECG data.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>volt</strong> (<em>list</em>) – List of voltages containing floats</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">List with DC average subtracted</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">subvolt (list)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="processECG.movingAverage">
+<code class="descclassname">processECG.</code><code class="descname">movingAverage</code><span class="sig-paren">(</span><em>t</em>, <em>volts</em>, <em>window</em><span class="sig-paren">)</span><a class="headerlink" href="#processECG.movingAverage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reduces noise by applying a moving average window.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>t</strong> (<em>list</em>) – List of ECG time floats</li>
+<li><strong>volts</strong> (<em>list</em>) – List of ECG voltage floats</li>
+<li><strong>window</strong> (<em>int</em>) – Size of moving average window</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">List of moving average voltage floats</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">lengthenedavg (list)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="readCSV.readCsv">
+<code class="descclassname">readCSV.</code><code class="descname">readCsv</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#readCSV.readCsv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads ECG data from .csv.</p>
+<p>This function extracts ECG data from a csv and stores
+it in the appropriate lists.</p>
+<p>:param : name (string): .csv filename</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">list containing time data from csv file
+v (list): list containing voltage data from csv file</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">t (list)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="readCSV.recondtiontv">
+<code class="descclassname">readCSV.</code><code class="descname">recondtiontv</code><span class="sig-paren">(</span><em>bottombnd</em>, <em>upperbnd</em>, <em>t</em>, <em>v</em><span class="sig-paren">)</span><a class="headerlink" href="#readCSV.recondtiontv" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="peakDetection.peakDetect">
+<code class="descclassname">peakDetection.</code><code class="descname">peakDetect</code><span class="sig-paren">(</span><em>t</em>, <em>v</em><span class="sig-paren">)</span><a class="headerlink" href="#peakDetection.peakDetect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Detects R wave peaks from processed ECG data.</p>
+<p>This function identifies R wave peaks using the continuous
+wavelet transform</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>t</strong> (<em>list</em>) – List of ECG time floats</li>
+<li><strong>v</strong> (<em>list</em>) – List of processed ECG voltage floats.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><dl class="docutils">
+<dt>List of integer indices corresponding to peaks</dt>
+<dd><p class="first last">in input lists.</p>
+</dd>
+</dl>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">peakind (list)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descclassname">readCSV.</code><code class="descname">recondtiontv</code><span class="sig-paren">(</span><em>bottombnd</em>, <em>upperbnd</em>, <em>t</em>, <em>v</em><span class="sig-paren">)</span></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="extVolt.extremeVolt">
+<code class="descclassname">extVolt.</code><code class="descname">extremeVolt</code><span class="sig-paren">(</span><em>volts</em><span class="sig-paren">)</span><a class="headerlink" href="#extVolt.extremeVolt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determines the min and max of a list.</p>
+<p>This function determines the min and max voltages of an ECG data
+set.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>volts</strong> (<em>list</em>) – List of voltages containing floats</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">minimum ECG voltage
+max (float): maximum ECG voltage</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">min (float)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="hrcalc.hrCalc">
+<code class="descclassname">hrcalc.</code><code class="descname">hrCalc</code><span class="sig-paren">(</span><em>peakind</em>, <em>t</em><span class="sig-paren">)</span><a class="headerlink" href="#hrcalc.hrCalc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determines the average HR over a specified interval.</p>
+<p>This function determines average number of beats/minute over
+a specified interval of ECG data.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>peakind</strong> (<em>list</em>) – List of indices corresponding to peaks of the R wave</li>
+<li><strong>t</strong> (<em>list</em>) – List of ECG time floats</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Average number of beats/minute</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">avghr (float)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="timeDuration.timeDuration">
+<code class="descclassname">timeDuration.</code><code class="descname">timeDuration</code><span class="sig-paren">(</span><em>times</em><span class="sig-paren">)</span><a class="headerlink" href="#timeDuration.timeDuration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Subtracts the first element of a list from the last.</p>
+<p>This function determines the duration of time that the ECG data was taken.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>times</strong> (<em>list</em>) – List containing floats corresponding to the time of</li>
+<li><strong>ECG voltage data point</strong> (<em>each</em>) – </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">the length of time the ECG data was taken</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">duration (float)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="writetoJson.writetoJson">
+<code class="descclassname">writetoJson.</code><code class="descname">writetoJson</code><span class="sig-paren">(</span><em>csvfile</em>, <em>meanhr</em>, <em>voltextremes</em>, <em>duration</em>, <em>beatnum</em>, <em>heartbeattimes</em><span class="sig-paren">)</span><a class="headerlink" href="#writetoJson.writetoJson" title="Permalink to this definition">¶</a></dt>
+<dd><p>Writes JSON file with hrm results</p>
+<p>This function writes the calculated hr parameters to
+a JSON file with same name as the data.</p>
+<p>:param : csvfile (string): Name of data file
+:param : meanhr (float): Calculated mean hr in interval
+:param : voltextremes (tuple): Tuple of floats corresponding to voltage extrema
+:param : duration (float): Time duration of data
+:param : beatnum (int): Number of beats detected in ECG data
+:param : heartbeattimes (list): List time floats of detected R wave peaks</p>
+<p>Returns:</p>
+</dd></dl>
+
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></li>
+<li><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></li>
+<li><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></li>
+</ul>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="#">Heart Rate Monitor</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="#">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, Ashish Vankara.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
