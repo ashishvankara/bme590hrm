@@ -1,7 +1,14 @@
 import logging
 logging.basicConfig(filename='log.txt', level=logging.DEBUG)
 
+
 def main():
+    """ Runs all attached functions
+
+    This function reads and analyzes the ECG data and
+    writes the calculated parameters to a JSON file.
+
+    """
     from readCSV import readCsv
     from readCSV import recondtiontv
     from processECG import subtractDC
@@ -32,7 +39,8 @@ def main():
     duration = timeDuration(t)
     beatnum = len(peakindices)
     meanhr = hrCalc(peakindices, t)
-    writetoJson(csvfile, meanhr, voltextremes, duration, beatnum, heartbeattimes)
+    writetoJson(csvfile, meanhr, voltextremes, duration, beatnum,
+                heartbeattimes)
     plt.plot(t, avgvolt)
     plt.plot(t[peakindices], avgvolt[peakindices], 'o')
     plt.show()

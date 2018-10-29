@@ -1,5 +1,5 @@
 
-def hrCalc(peakind,t):
+def hrCalc(peakind, t):
     """ Determines the average HR over a specified interval
 
     This function determines average number of beats/minute over

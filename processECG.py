@@ -1,5 +1,6 @@
 import logging
 
+
 def subtractDC(volt):
     """ Subtracts the average of an array from all the values in the array
 
@@ -18,7 +19,8 @@ def subtractDC(volt):
     logging.debug("DC offset was subtracted form voltage data")
     return subvolt
 
-def movingAverage(t,volts, window):
+
+def movingAverage(t, volts, window):
     """ Reduces noise by applying a moving average window
 
      Args:
@@ -33,18 +35,14 @@ def movingAverage(t,volts, window):
     bleh = np.repeat(1.0, window) / window
     movingavg = np.convolve(volts, bleh, 'valid')
     lengthenedavg = np.append(volts[:len(t) - len(movingavg)], movingavg)
-    logging.debug("Moving average was applied with a window of %f values", window)
+    logging.debug("Moving average was applied with a window of %f values",
+                  window)
     return lengthenedavg
+
 
 if __name__ == "__main__":
     from readCSV import readCsv
     import numpy as np
-    [t,v] = readCsv(r'test_data10.csv')
+    [t, v] = readCsv(r'test_data10.csv')
     sv = subtractDC(v)
-    svf = savgolFilter(sv)
-    avgvolt =movingAverage(t, svf, 40)
-
-
-
-
-
+    avgvolt = movingAverage(t, sv, 40)

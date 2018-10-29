@@ -1,5 +1,6 @@
 import pytest
 
+
 def test_hrcalc():
     """" Tests average hr calculation
     """

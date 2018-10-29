@@ -1,5 +1,6 @@
 import pytest
 
+
 def test_timeDuration():
     """" Tests extraction of time duration of ECG data
     """
