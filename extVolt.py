@@ -1,6 +1,6 @@
 
 def extremeVolt(volts):
-    """ Determines the min and max elements of a list
+    """ Determines the min and max of a list
 
     This function determines the min and max voltages of an ECG data
     set
@@ -12,7 +12,6 @@ def extremeVolt(volts):
         :min (float): minimum ECG voltage
         :max (float): maximum ECG voltage
     """
-    import numpy as np
     volts.sort()
     print(volts)
     max = volts[-1]
