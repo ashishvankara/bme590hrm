@@ -1,6 +1,7 @@
 # bme590hrm
 Heart Rate Monitor Assignment 2018 [1.0.0]
-##Status Badge:
+
+## Status Badge:
 ![alt text](https://travis-ci.com/ashishvankara/bme590hrm.svg?branch=master "Status Badge")
 
 
@@ -31,11 +32,11 @@ The software package is separated into the following files:
 - Unit Tests: Several are included for adequate test coverage.
 
 
-# Possible areas of improvement
+## Possible areas of improvement
 
 The continuous wavelet transform method for peak detection requires a different CWT matrix for every ECG strip. Perhaps a better strategy would be to cross-correlate a clean ECG strip with a prominent QRS wave.
 
-# License
+## License
 
 MIT License
 
