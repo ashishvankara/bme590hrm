@@ -16,9 +16,11 @@ def readCsv(name):
     """
 
     import numpy as np
-    t = np.genfromtxt(name, delimiter=",", usecols=0, dtype=float, missing_values=np.nan)
+    t = np.genfromtxt(name, delimiter=",", usecols=0, dtype=float,
+                      missing_values=np.nan)
     logging.debug('Time extraction from CSV successful')
-    v = np.genfromtxt(name, delimiter=",", usecols=1, dtype=float, missing_values=np.nan)
+    v = np.genfromtxt(name, delimiter=",", usecols=1, dtype=float,
+                      missing_values=np.nan)
     logging.debug('Voltage extraction from CSV successful')
     if len(t) != len(v):
         logging.error("Length of time column is unequal to the"

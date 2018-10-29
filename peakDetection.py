@@ -1,6 +1,7 @@
 from scipy import signal
 import numpy as np
 
+
 def peakDetect(t, v):
     """ Detects R wave peaks from processed ECG data
 
@@ -12,9 +13,10 @@ def peakDetect(t, v):
         :v (list): List of processed ECG voltage floats.
 
     Returns:
-        :peakind (list): List of integer indices corresponding to peaks in input lists.
+        :peakind (list): List of integer indices corresponding to peaks
+         in input lists.
     """
-    peakind = signal.find_peaks_cwt(v, np.arange(20,40,.1))
+    peakind = signal.find_peaks_cwt(v, np.arange(20, 40, .1))
     return peakind
 
 if __name__ == "__main__":
@@ -29,5 +31,5 @@ if __name__ == "__main__":
     avgvolt = movingAverage(t, svf, 30)
     peaks = peakDetect(t, avgvolt)
     plt.plot(t, avgvolt)
-    plt.plot(t[peaks ], avgvolt[peaks], 'o')
+    plt.plot(t[peaks], avgvolt[peaks], 'o')
     plt.show()

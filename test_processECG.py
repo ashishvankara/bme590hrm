@@ -1,14 +1,16 @@
 import pytest
 
+
 def test_subtractDC():
     """" Tests subtraction of the average of a list from all the values in the list
     """
     from processECG import subtractDC
     import numpy as np
-    a = np.arange(1,11)
+    a = np.arange(1, 11)
     dc_offset = a.mean()
     b = a - dc_offset
     assert pytest.approx(b) == subtractDC(a)
+
 
 def test_movingAverage():
     """ Tests the application of a moving average window

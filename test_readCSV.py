@@ -17,6 +17,7 @@ def test_csvREAD():
     assert pytest.approx(timea) == correctta
     assert pytest.approx(voltsa) == correctva
 
+
 def test_recondtiontv():
     """" Tests user input of time interval
     """

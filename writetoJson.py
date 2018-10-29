@@ -1,5 +1,7 @@
 
-def writetoJson(csvfile, meanhr, voltextremes, duration, beatnum, heartbeattimes):
+
+def writetoJson(csvfile, meanhr, voltextremes, duration, beatnum,
+                heartbeattimes):
     """ Writes JSON file with hrm results
 
     This function writes the calculated hr parameters to
