@@ -10,7 +10,6 @@ def timeDuration(times):
     Returns:
         :duration (float): the length of time the ECG data was taken
     """
-
     duration = times[-1] - times[0]
     return duration
 

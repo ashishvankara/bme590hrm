@@ -6,7 +6,8 @@ def test_hrcalc():
     import numpy as np
     from hrcalc import hrCalc
     peakind = np.arange(1, 61)
-    t = np.arange(1, 61)
+    t = np.arange(0, 61)
+    print(t)
     assert pytest.approx(hrCalc(peakind, t)) == 60
 
 if __name__ == "__main__":

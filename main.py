@@ -31,17 +31,7 @@ def main():
     duration = timeDuration(t)
     beatnum = len(peakindices)
     meanhr = hrCalc(peakindices, t)
-    metrics = {"Data_file": csvfile,
-               "mean_hr_bpm": meanhr,
-               "voltage_extremes": voltextremes,
-               "duration": duration,
-               "num_beats": beatnum,
-               "beats": heartbeattimes}
-    jsonfile = csvfile.rstrip('csv')
-    jsonfile = jsonfile + 'json'
-    with open(jsonfile, 'w') as file:
-        json.dump(metrics, file)
-        logging.info("JSON export complete to %s", jsonfile)
+
     plt.plot(t, avgvolt)
     plt.plot(t[peakindices], avgvolt[peakindices], 'o')
     plt.show()
