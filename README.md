@@ -1,5 +1,5 @@
 # bme590hrm
-Heart Rate Monitor Assignment 2018
+Heart Rate Monitor Assignment 2018 [1.0.0]
 ##Status Badge:
 ![alt text](https://travis-ci.com/ashishvankara/bme590hrm.svg?branch=master "Status Badge")
 
