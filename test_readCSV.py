@@ -2,7 +2,8 @@ import pytest
 
 
 def test_csvREAD():
-    """" Tests ecg data extraction from .csv
+    """" Tests ecg data extraction from .csv.
+
     """
     from readCSV import readCsv
     [time, volts] = readCsv('testcsvreaddata.csv')
