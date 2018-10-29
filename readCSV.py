@@ -8,7 +8,7 @@ def readCsv(name):
     it in the appropriate lists.
 
     Args:
-        :name (string): .csv filename
+        name (string): .csv filename
 
     Returns:
         t (list): list containing time data from csv file
@@ -40,6 +40,25 @@ def readCsv(name):
 
 
 def recondtiontv(bottombnd, upperbnd, t, v):
+    """ Reads reconditions time interval of data.
+
+    This function extracts specific time intervals from time
+    and voltage lists.
+
+    Args:
+        bottombnd (float): Lower bound of time interval
+        upperbnd (float): Upper bound of time interval
+        t (list): List of time floats from ECG data
+        v (list): List of voltage floats from ECG data
+
+    Returns:
+        adjustedtime (list): list containing time data within lower and
+         upper bounds.
+        adjustedvolt (list): list containing voltage data corresponding
+        to reconditioned time vector.
+
+    """
+
     if bottombnd > upperbnd:
         logging.error("Bottom bound must be smaller than upper bound")
         raise TypeError("Bottom bound must be smaller than upper bound")
@@ -52,8 +71,8 @@ def recondtiontv(bottombnd, upperbnd, t, v):
 #    if len(adjustedtime) < 100:
 #        raise ValueError("Length of data is too short, please modify bounds"
 #                         " or pass longer .csv")
-#    if len(adjustedtime) != len(t):
-#        logging.debug("Partial ECG data is being analyzed")
+    if len(adjustedtime) != len(t):
+        logging.debug("Partial ECG data is being analyzed")
     return [adjustedtime, adjustedvolt]
 
 if __name__ == "__main__":
